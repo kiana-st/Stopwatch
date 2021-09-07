@@ -1,0 +1,83 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "iransans"; */
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(76, 191, 172, 1) 0%,
+    rgba(178, 210, 53, 1) 100%
+  );
+}
+/* @font-face {
+    font-family: "iransans";
+    src: url(fonts/IRANSansWeb.ttf) format("truetype"),
+      url("fonts/IRANSansWeb.woff") format("woff");
+  } */
+
+.main {
+  margin-top: 15%;
+}
+.pic {
+  width: 280px;
+  cursor: pointer;
+}
+.logo {
+  text-align: center;
+}
+.logo1{
+  width: 180px;
+  cursor: pointer;
+}
+.box3 {
+  justify-content: space-between;
+}
+.box1 {
+}
+
+.box2 {
+  text-align: end;
+}
+
+.start-btn {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border-color: transparent;
+}
+
+.stop-btn {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border-color: transparent;
+}
+@media (max-width: 768px) { 
+  .pic{
+    width: 200px;
+  }
+  .logo1{
+    width: 150px;
+  }
+  .box1{
+    text-align: center;
+  }
+.box2{
+  text-align: center;
+}
+ }
+
+ #stopwatch{
+  font-size: 100px;
+  position: absolute;
+  top:45%;
+  left: 50%;
+  transform: translate(-50%,-55%);
+ }
+
+
+ /* background: rgb(44,189,175);
+background: linear-gradient(90deg, rgba(44,189,175,1) 26%, rgba(15,204,228,1) 47%, rgba(0,212,255,1) 67%, rgba(135,85,242,1) 88%, rgba(196,169,255,1) 97%); */
