@@ -1,44 +1,67 @@
-var time = 0;
-var running = 0;
-function startPause(){
-	if(running == 0){
-		running = 1;
-		increment();
-	document.getElementById("start").innerHTML = "Pause";
-	document.getElementById("startPause").style.backgroundColor = "red";	
-	document.getElementById("startPause").style.borderColor = "red";
-	}
-	else{
-		running = 0;
-	document.getElementById("start").innerHTML = "Resume";	
-	document.getElementById("startPause").style.backgroundColor = "green";	
-	document.getElementById("startPause").style.borderColor = "green";
-	}
-}
-function reset(){
-	running = 0;
-	time = 0;
-	document.getElementById("start").innerHTML = "Start";
-	document.getElementById("output").innerHTML = "0:00:00:00";
-	document.getElementById("startPause").style.backgroundColor = "green";	
-	document.getElementById("startPause").style.borderColor = "green";
-}
-function increment(){
-	if(running == 1){
-		setTimeout(function(){
-			time++;
-			var mins = Math.floor(time/10/60);
-			var secs = Math.floor(time/10 % 60);
-			var hours = Math.floor(time/10/60/60); 
-			var tenths = time % 10;
-			if(mins < 10){
-				mins = "0" + mins;
-			} 
-			if(secs < 10){
-				secs = "0" + secs;
-			}
-			document.getElementById("output").innerHTML = hours + ":" + mins + ":" + secs + ":" + tenths + "0";
-			increment();
-		},100)
-	}
-}
+    let intervalHandle = 1;
+    let startTime = new Date();
+
+
+    const startButton = document.getElementById("start");
+    const resetButton = document.getElementById("reset");
+    const outputLabel = document.getElementById("output");
+
+    let getIntervalString = (startTime, endTime) => {
+      const milliseconds = endTime - startTime;
+
+      const hour = Math.floor(milliseconds / (3600 * 1000));
+      const minute = Math.floor((milliseconds % (3600 * 1000)) / (60 * 1000));
+      const second = Math.floor((milliseconds % (60 * 1000)) / 1000);
+      const fraction = Math.floor(milliseconds % 1000);
+      return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:${String(second).padStart(2, "0")}.${String(fraction).padStart(3, "0")}`;
+    }
+
+    let start = () => {
+      console.log("start");
+
+      if (intervalHandle !== null)
+        return;
+
+      startTime = new Date();
+
+      intervalHandle = setInterval(() => {
+        console.log("interval");
+        const currentTime = new Date();
+        const intervalText = getIntervalString(startTime, currentTime);
+
+        outputLabel.innerText = intervalText;
+      }, 100);
+
+      startButton.disabled = true;
+      resetButton.disabled = false;
+
+      startButton.style.backgroundColor = "#00ff00";
+      resetButton.style.backgroundColor = "#00ff00";
+      // document. getElementById("output"). style. display = "none"; //hide.
+
+    };
+
+    let reset = () => {
+      console.log("reset");
+
+
+      if (intervalHandle === null)
+        return;
+
+      clearInterval(intervalHandle);
+
+      intervalHandle = null;
+
+      startButton.disabled = false;
+      resetButton.disabled = true;
+
+      startButton.style.backgroundColor = "#ff0000";
+      resetButton.style.backgroundColor = "#ff0000";
+
+
+      // document. getElementById("output"). style. display = "block"; //show.
+    }
+
+    reset();
+
+    outputLabel.innerText = getIntervalString(startTime, startTime);
