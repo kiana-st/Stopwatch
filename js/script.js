@@ -67,15 +67,15 @@
     outputLabel.innerText = getIntervalString(startTime, startTime);
 
     var changepic = null;
-function run( changepic )
+function run( thispic )
 {
-    if( prevSquare && prevSquare != thisSquare ) {
+    if( changepic && changepic != thispic ) {
         // Alter prevSquare image (if prevSquare is an <img> element)
-        prevSquare.setAttribute("src", prevSquare.getAttribute("srcOff"));
+        changepic.setAttribute("src", changepic.getAttribute("srcOff"));
     }
 
     // Alter thisSquare to your active image
-    thisSquare.setAttribute("src", thisSquare.getAttribute("srcOn"));
+    thispic.setAttribute("src", thispic.getAttribute("srcOn"));
 
-    prevSquare = thisSquare;
+    prevSquare = thispic;
 }
