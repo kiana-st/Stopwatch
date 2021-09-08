@@ -18,9 +18,13 @@
 
     let start = () => {
       console.log("start");
+      var image = document.getElementById('myImg')
+      var image1= document.getElementById('myImg1')
 
-      if (intervalHandle !== null)
+      if (intervalHandle !== null && image.src.match("../images/icon-04.png"))
         return;
+        image.src = "../images/icon-01.png";
+        image1.src = "../images/icon-02.png";
 
       startTime = new Date();
 
@@ -42,6 +46,9 @@
     };
 
     let reset = () => {
+      var image = document.getElementById('myImg')
+      var image = document.getElementById('myImg1')
+
       console.log("reset");
 
 
@@ -57,6 +64,8 @@
 
       startButton.style.backgroundColor = "#ff0000";
       resetButton.style.backgroundColor = "#ff0000";
+      image.src = "../images/icon-04.png"
+      image1.src = "../images/icon-03.png"
 
 
       // document. getElementById("output"). style. display = "block"; //show.
@@ -65,17 +74,3 @@
     reset();
 
     outputLabel.innerText = getIntervalString(startTime, startTime);
-
-    var changepic = null;
-function run( thispic )
-{
-    if( changepic && changepic != thispic ) {
-        // Alter prevSquare image (if prevSquare is an <img> element)
-        changepic.setAttribute("src", changepic.getAttribute("srcOff"));
-    }
-
-    // Alter thisSquare to your active image
-    thispic.setAttribute("src", thispic.getAttribute("srcOn"));
-
-    prevSquare = thispic;
-}
