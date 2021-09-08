@@ -59,8 +59,9 @@ body {
 
  .number{
   text-align: center;
+  font-size: 120%;
   position: absolute;
-  top:350px;
+  top:320px;
   left: 50%;
   transform: translate(-50%,-55%);
  }
@@ -81,7 +82,8 @@ body {
 @media (max-width: 991px){
   .number{
     position: absolute;
-    top:50px;
+    font-size: 100%;
+    top:47px;
     left: 50%;
     transform: translate(-50%,-55%);
   }
