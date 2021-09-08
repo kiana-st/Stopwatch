@@ -55,7 +55,18 @@ body {
   padding: 0;
   border-color: transparent;
 }
-@media (max-width: 768px) { 
+.number{
+  text-align: center;
+  position: absolute;
+  top:350px;
+  left: 50%;
+  transform: translate(-50%,-55%);
+}
+ .stopwatch{
+  font-size: 100px;
+  position: relative;
+ }
+ @media (max-width: 768px) { 
   .pic{
     width: 200px;
   }
@@ -69,15 +80,14 @@ body {
   text-align: center;
 }
  }
-
- #stopwatch{
-  font-size: 100px;
-  position: absolute;
-  top:45%;
-  left: 50%;
-  transform: translate(-50%,-55%);
- }
-
+@media (max-width: 991px){
+  .number{
+    position: absolute;
+    top:50px;
+    left: 50%;
+    transform: translate(-50%,-55%);
+  }
+}
 
  /* background: rgb(44,189,175);
 background: linear-gradient(90deg, rgba(44,189,175,1) 26%, rgba(15,204,228,1) 47%, rgba(0,212,255,1) 67%, rgba(135,85,242,1) 88%, rgba(196,169,255,1) 97%); */
